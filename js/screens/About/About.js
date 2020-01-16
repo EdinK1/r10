@@ -18,9 +18,9 @@ const AlL_CONDUCTS = gql`
 const About = () => {
   const {loading, error, data} = useQuery(AlL_CONDUCTS);
   return loading ? (
-    <div>loading...</div>
+    <Text>loading...</Text>
   ) : error ? (
-    console.error(error)
+    <Text>something went wrong.</Text>
   ) : (
     <View style={styles.container}>
       <Text>About</Text>
