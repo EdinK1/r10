@@ -6,7 +6,9 @@ const Conduct = ({title, description}) => {
   return (
     <>
       <TouchableOpacity onPress={() => setOpen(!open)}>
-        <Text>+ {title}</Text>
+        <Text>
+          {open ? '-' : '+'} {title}
+        </Text>
       </TouchableOpacity>
       {open ? <Text>{description}</Text> : null}
     </>
