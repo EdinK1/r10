@@ -2,7 +2,7 @@ import React from 'react';
 import {Text} from 'react-native';
 
 const Faves = () => {
-  return <Text>faves</Text>;
+  return <Text>butts</Text>;
 };
 
 export default Faves;

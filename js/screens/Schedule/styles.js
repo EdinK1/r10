@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   sessionDetails: {
     backgroundColor: '#fff',
-    paddingVertical: 10,
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#e6e6e6',
   },

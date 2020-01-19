@@ -16,7 +16,7 @@ const ALL_SESSIONS = gql`
   }
 `;
 
-const Schedule = () => {
+const Schedule = ({navigation}) => {
   const {loading, error, data} = useQuery(ALL_SESSIONS);
   const startTime = time =>
     new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
@@ -42,15 +42,15 @@ const Schedule = () => {
 
   const [favoriteNotes, setFavoriteNotes] = useState([]);
 
-  const addFavorite = id => {
-    const arrCopy = [...favoriteNotes];
-    const eventIndex = arrCopy.indexOf(id);
+  // const addFavorite = id => {
+  //   const arrCopy = [...favoriteNotes];
+  //   const eventIndex = arrCopy.indexOf(id);
 
-    eventIndex !== -1 ? arrCopy.splice(eventIndex, 1) : arrCopy.push(id);
-    setFavoriteNotes(arrCopy);
-  };
+  //   eventIndex !== -1 ? arrCopy.splice(eventIndex, 1) : arrCopy.push(id);
+  //   setFavoriteNotes(arrCopy);
+  // };
 
-  console.log(favoriteNotes);
+  // console.log(favoriteNotes);
 
   return loading ? (
     <Text>loading...</Text>
@@ -63,16 +63,16 @@ const Schedule = () => {
         keyExtractor={({id}) => id}
         renderItem={({item: {id, title, location}}, i) => (
           <View style={styles.sessionDetails}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push('Session', {id})}>
               <Text style={styles.sessionTitle}>{title}</Text>
             </TouchableOpacity>
             <View style={styles.favoriteContainer}>
               <Text style={styles.sessionLocation}>{location}</Text>
               <Text
-                onPress={() => {
-                  addFavorite(id);
-                  console.log(favoriteNotes);
-                }}
+                // onPress={() => {
+                //   addFavorite(id);
+                //   console.log(favoriteNotes);
+                // }}
                 style={styles.favoriteBtn}>
                 +
               </Text>
