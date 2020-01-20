@@ -1,14 +1,15 @@
 import React from 'react';
 import {Modal as NativeModal, Text, TouchableOpacity} from 'react-native';
 import Section from './Section';
+import Heading from './Heading';
 
-const Modal = ({children}) => (
-  <NativeModal animation="slide" transparent={false} visible={true}>
-    <TouchableOpacity>
-      <Text>+</Text>
-    </TouchableOpacity>
+const Modal = ({children, open = false, onClose}) => (
+  <NativeModal animationType="slide" transparent={false} visible={open}>
     <Section>
-      <Text>hello</Text>
+      <TouchableOpacity onPress={onClose}>
+        <Text>x</Text>
+      </TouchableOpacity>
+      <Heading>About the Speaker</Heading>
       {children}
     </Section>
   </NativeModal>
