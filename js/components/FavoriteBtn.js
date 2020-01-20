@@ -1,8 +1,18 @@
 import React from 'react';
-import {Button} from 'react-native';
+import {TouchableOpacity, Text} from 'react-native';
+import useFavorites from '../hooks/useFavorites';
 
-const FavoriteBtn = ({label, ...props}) => {
-  return <Button {...props} title={label}></Button>;
+const FavoriteBtn = ({id, ...props}) => {
+  const [favorites, addFavorite, removeFavorite] = useFavorites();
+  return (
+    <TouchableOpacity
+      {...props}
+      onPress={() =>
+        favorites.includes(id) ? removeFavorite(id) : addFavorite(id)
+      }>
+      <Text>+</Text>
+    </TouchableOpacity>
+  );
 };
 
 export default FavoriteBtn;

@@ -4,6 +4,7 @@ import {useQuery} from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
 import styles from './styles';
 import Section from '../../components/Section';
+import FavoriteBtn from '../../components/FavoriteBtn';
 
 const ALL_SESSIONS = gql`
   {
@@ -40,18 +41,6 @@ const Schedule = ({navigation}) => {
     return headers;
   };
 
-  const [favoriteNotes, setFavoriteNotes] = useState([]);
-
-  // const addFavorite = id => {
-  //   const arrCopy = [...favoriteNotes];
-  //   const eventIndex = arrCopy.indexOf(id);
-
-  //   eventIndex !== -1 ? arrCopy.splice(eventIndex, 1) : arrCopy.push(id);
-  //   setFavoriteNotes(arrCopy);
-  // };
-
-  // console.log(favoriteNotes);
-
   return loading ? (
     <Text>loading...</Text>
   ) : error ? (
@@ -68,14 +57,7 @@ const Schedule = ({navigation}) => {
             </TouchableOpacity>
             <View style={styles.favoriteContainer}>
               <Text style={styles.sessionLocation}>{location}</Text>
-              <Text
-                // onPress={() => {
-                //   addFavorite(id);
-                //   console.log(favoriteNotes);
-                // }}
-                style={styles.favoriteBtn}>
-                +
-              </Text>
+              <FavoriteBtn id={id} style={styles.favoriteBtn} />
             </View>
           </View>
         )}
