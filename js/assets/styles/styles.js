@@ -20,6 +20,12 @@ const globalStyles = StyleSheet.create({
     fontSize: 20,
     paddingVertical: 10,
   },
+  btn: {
+    color: '#fff',
+    backgroundColor: '#9963ea',
+    borderRadius: 25,
+    padding: 10,
+  },
 });
 
 export default globalStyles;
