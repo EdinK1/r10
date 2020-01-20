@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Map from '../screens/Map/';
 import Faves from '../screens/Faves/';
 import Session from '../screens/Session/';
+import Speaker from '../screens/Speaker/';
 
 const HomeScene = createStackNavigator({
   Schedule,
@@ -14,6 +15,7 @@ const HomeScene = createStackNavigator({
     navigationOptions: {
       headerBackTitleVisible: false,
     },
+    Speaker,
   },
 });
 const MapScene = createStackNavigator({Map});
