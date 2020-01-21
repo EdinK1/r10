@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useQuery} from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
 import Section from '../../components/Section';
-import {Text, Image, TouchableOpacity} from 'react-native';
+import {Text, Image, TouchableOpacity, Linking} from 'react-native';
 import Paragraph from '../../components/Paragraph';
 import Heading from '../../components/Heading';
 import FavoriteBtn from '../../components/FavoriteBtn';
@@ -68,7 +68,9 @@ const Session = ({navigation}) => {
         />
         <Text>{session.speaker.name}</Text>
         <Text>{session.speaker.bio}</Text>
-        <Text>{session.speaker.url}</Text>
+        <TouchableOpacity onPress={() => Linking.openURL(session.speaker.url)}>
+          <Text>Read More on Wikipedia</Text>
+        </TouchableOpacity>
       </Modal>
       <FavoriteBtn color="#9963ea" label="Add to Faves" />
     </Section>

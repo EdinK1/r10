@@ -10,13 +10,8 @@ const App = () => {
   return (
     <ApolloWrapper>
       <Navigator />
-      {/* <About /> */}
-      {/* <Schedule /> */}
-      {/* <Map /> */}
     </ApolloWrapper>
   );
 };
-
-// const styles = StyleSheet.create({});
 
 export default App;
