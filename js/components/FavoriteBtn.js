@@ -10,7 +10,7 @@ const FavoriteBtn = ({id, ...props}) => {
       onPress={() =>
         favorites.includes(id) ? removeFavorite(id) : addFavorite(id)
       }>
-      <Text>+</Text>
+      <Text>{favorites.includes(id) ? `💜` : `💟`}</Text>
     </TouchableOpacity>
   );
 };

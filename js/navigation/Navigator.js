@@ -1,3 +1,4 @@
+import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import About from '../screens/About/';
@@ -6,6 +7,7 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Map from '../screens/Map/';
 import Faves from '../screens/Faves/';
 import Session from '../screens/Session/';
+import {View, Text} from 'react-native';
 
 const HomeScene = createStackNavigator({
   Schedule,
@@ -22,10 +24,46 @@ const FavesScene = createStackNavigator({Faves});
 
 const Navigator = createBottomTabNavigator(
   {
-    Schedule: HomeScene,
-    Map: MapScene,
-    Faves: FavesScene,
-    About: AboutScene,
+    Schedule: {
+      screen: HomeScene,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <Text>⏱</Text>
+          </View>
+        ),
+      },
+    },
+    Map: {
+      screen: MapScene,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <Text>🗺</Text>
+          </View>
+        ),
+      },
+    },
+    Faves: {
+      screen: FavesScene,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <Text>⭐️</Text>
+          </View>
+        ),
+      },
+    },
+    About: {
+      screen: AboutScene,
+      navigationOptions: {
+        tabBarIcon: () => (
+          <View>
+            <Text>ℹ️</Text>
+          </View>
+        ),
+      },
+    },
   },
   {
     tabBarOptions: {
