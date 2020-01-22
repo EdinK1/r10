@@ -77,6 +77,7 @@ const Navigator = createBottomTabNavigator(
       labelStyle: {
         fontSize: 14,
         fontWeight: '600',
+        fontFamily: 'Montserrat-Regular',
       },
     },
     initialRouteName: 'Schedule',

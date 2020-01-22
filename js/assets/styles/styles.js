@@ -11,11 +11,12 @@ const globalStyles = StyleSheet.create({
   },
   title: {
     fontSize: 26,
+    fontFamily: 'Montserrat-Regular',
     paddingVertical: 10,
     fontWeight: '600',
   },
   paragraph: {
-    fontWeight: '300',
+    fontFamily: 'Montserrat-Light',
     color: '#000',
     fontSize: 20,
     lineHeight: 30,
@@ -25,8 +26,8 @@ const globalStyles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
     paddingHorizontal: 10,
-    letterSpacing: 2,
   },
   modalContainer: {
     backgroundColor: '#000',
@@ -50,6 +51,7 @@ const globalStyles = StyleSheet.create({
   modalAboutSpeaker: {
     color: '#fff',
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
     fontSize: 20,
     letterSpacing: 1.1,
   },

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   conductTitle: {
     color: '#9963ea',
     fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
     fontWeight: '600',
     paddingVertical: 10,
   },

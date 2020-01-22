@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     fontSize: 13,
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
   },
   sessionDetails: {
     backgroundColor: '#fff',
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
   sessionTitle: {
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
     paddingLeft: 8,
     paddingVertical: 10,
   },
@@ -25,6 +27,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     paddingBottom: 4,
     fontSize: 14,
+    fontFamily: 'Montserrat-Regular',
     fontWeight: '600',
   },
   favoriteContainer: {

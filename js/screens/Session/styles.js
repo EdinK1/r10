@@ -15,18 +15,21 @@ const styles = StyleSheet.create({
     color: '#999',
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
   },
   startTime: {
     color: '#cf392a',
     fontSize: 18,
     paddingVertical: 10,
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
   },
   presentedBy: {
     paddingVertical: 16,
     fontSize: 18,
     color: '#999',
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
   },
   speaker: {
     flexDirection: 'row',
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
   speakerName: {
     paddingLeft: 10,
     fontWeight: '600',
+    fontFamily: 'Montserrat-Regular',
     fontSize: 18,
   },
   speakerImg: {
