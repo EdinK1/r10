@@ -28,28 +28,26 @@ const Schedule = ({navigation}) => {
   ) : error ? (
     <Text>something went wrong.</Text>
   ) : (
-    <Section>
-      <SectionList
-        sections={data.allSessions
-          .filter(({id}) => favorites.includes(id))
-          .reduce(sessionGrouper, [])}
-        keyExtractor={({id}) => id}
-        renderItem={({item: {id, title, location}}, i) => (
-          <View style={styles.sessionDetails}>
-            <TouchableOpacity onPress={() => navigation.push('Session', {id})}>
-              <Text style={styles.sessionTitle}>{title}</Text>
-            </TouchableOpacity>
-            <View style={styles.favoriteContainer}>
-              <Text style={styles.sessionLocation}>{location}</Text>
-              <FavoriteIcon id={id} style={styles.favoriteIcon} />
-            </View>
+    <SectionList
+      sections={data.allSessions
+        .filter(({id}) => favorites.includes(id))
+        .reduce(sessionGrouper, [])}
+      keyExtractor={({id}) => id}
+      renderItem={({item: {id, title, location}}, i) => (
+        <View style={styles.sessionDetails}>
+          <TouchableOpacity onPress={() => navigation.push('Session', {id})}>
+            <Text style={styles.sessionTitle}>{title}</Text>
+          </TouchableOpacity>
+          <View style={styles.favoriteContainer}>
+            <Text style={styles.sessionLocation}>{location}</Text>
+            <FavoriteIcon id={id} style={styles.favoriteIcon} />
           </View>
-        )}
-        renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.startTime}>{timeFormatter(title)}</Text>
-        )}
-      />
-    </Section>
+        </View>
+      )}
+      renderSectionHeader={({section: {title}}) => (
+        <Text style={styles.startTime}>{timeFormatter(title)}</Text>
+      )}
+    />
   );
 };
 
