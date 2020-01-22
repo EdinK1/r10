@@ -6,6 +6,7 @@ import styles from './styles';
 import Section from '../../components/Section';
 import FavoriteIcon from '../../components/FavoriteIcon';
 import {timeFormatter, sessionGrouper} from '../../helpers/';
+import Spinner from '../../components/Spinner';
 
 const ALL_SESSIONS = gql`
   {
@@ -22,7 +23,7 @@ const Schedule = ({navigation}) => {
   const {loading, error, data} = useQuery(ALL_SESSIONS);
 
   return loading ? (
-    <Text>loading...</Text>
+    <Spinner />
   ) : error ? (
     <Text>something went wrong.</Text>
   ) : (

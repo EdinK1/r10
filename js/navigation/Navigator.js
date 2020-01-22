@@ -8,7 +8,7 @@ import Map from '../screens/Map/';
 import Faves from '../screens/Faves/';
 import Session from '../screens/Session/';
 import {View, Text} from 'react-native';
-import {sharedNavigationOptions} from './gradientHeader';
+import {sharedNavigationOptions} from './config';
 const HomeScene = createStackNavigator(
   {Schedule, Session},
   {

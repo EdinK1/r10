@@ -11,6 +11,7 @@ import FavoriteBtn from '../../components/FavoriteBtn';
 import styles from './styles';
 import globalStyles from '../../assets/styles/styles';
 import {timeFormatter} from '../../helpers/';
+import Spinner from '../../components/Spinner';
 
 const getSelectedSessionById = id => {
   const {data, loading, error} = useQuery(
@@ -47,7 +48,7 @@ const Session = ({navigation}) => {
   );
 
   return loading ? (
-    <Paragraph>loading...</Paragraph>
+    <Spinner />
   ) : error ? (
     <Paragraph>Something went wrong</Paragraph>
   ) : session ? (

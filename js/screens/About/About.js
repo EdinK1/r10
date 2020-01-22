@@ -9,6 +9,7 @@ import Paragraph from '../../components/Paragraph';
 import Section from '../../components/Section';
 import Heading from '../../components/Heading';
 import {ScrollView} from 'react-native-gesture-handler';
+import Spinner from '../../components/Spinner';
 
 const AlL_CONDUCTS = gql`
   {
@@ -24,7 +25,7 @@ const AlL_CONDUCTS = gql`
 const About = () => {
   const {loading, error, data} = useQuery(AlL_CONDUCTS);
   return loading ? (
-    <Paragraph>loading...</Paragraph>
+    <Spinner />
   ) : error ? (
     <Paragraph>something went wrong.</Paragraph>
   ) : (

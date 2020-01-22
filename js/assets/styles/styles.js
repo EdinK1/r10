@@ -62,6 +62,11 @@ const globalStyles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 85,
   },
+  spinner: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
 });
 
 export default globalStyles;
