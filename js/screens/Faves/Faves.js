@@ -4,7 +4,7 @@ import {useQuery} from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
 import styles from '../Schedule/styles';
 import Section from '../../components/Section';
-import FavoriteBtn from '../../components/FavoriteBtn';
+import FavoriteIcon from '../../components/FavoriteIcon';
 import useFavorites from '../../hooks/useFavorites';
 
 const ALL_SESSIONS = gql`
@@ -61,7 +61,7 @@ const Schedule = ({navigation}) => {
             </TouchableOpacity>
             <View style={styles.favoriteContainer}>
               <Text style={styles.sessionLocation}>{location}</Text>
-              <FavoriteBtn id={id} style={styles.favoriteBtn} />
+              <FavoriteIcon id={id} style={styles.favoriteIcon} />
             </View>
           </View>
         )}

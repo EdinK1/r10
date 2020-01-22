@@ -68,6 +68,7 @@ const Navigator = createBottomTabNavigator(
   {
     tabBarOptions: {
       activeTintColor: '#fff',
+
       inactiveTintColor: '#999',
       labelPosition: 'below-icon',
       style: {

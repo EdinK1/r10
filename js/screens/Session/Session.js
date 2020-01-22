@@ -5,8 +5,11 @@ import Section from '../../components/Section';
 import {Text, Image, TouchableOpacity, Linking} from 'react-native';
 import Paragraph from '../../components/Paragraph';
 import Heading from '../../components/Heading';
-import FavoriteBtn from '../../components/FavoriteBtn';
+import FavoriteIcon from '../../components/FavoriteIcon';
 import Modal from '../../components/Modal';
+import FavoriteBtn from '../../components/FavoriteBtn';
+import styles from './styles';
+import globalStyles from '../../assets/styles/styles';
 
 const getSelectedSessionById = id => {
   const {data, loading, error} = useQuery(
@@ -42,37 +45,53 @@ const Session = ({navigation}) => {
     navigation.getParam('id'),
   );
 
+  const startTime = time =>
+    new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
+
   return loading ? (
     <Paragraph>loading...</Paragraph>
   ) : error ? (
     <Paragraph>Something went wrong</Paragraph>
   ) : session ? (
-    <Section>
-      <Text>{session.location}</Text>
-      <Heading>{session.title}</Heading>
-      <Text>{session.startTime}</Text>
-      <Paragraph>{session.description}</Paragraph>
-      <Text>Presented by:</Text>
-
-      <TouchableOpacity onPress={toggleModal}>
-        <Text>{session.speaker.name}</Text>
+    <Section style={styles.wrapper}>
+      <Section style={styles.header}>
+        <Text style={styles.sessionLocation}>{session.location}</Text>
+        <FavoriteIcon id={session.id} />
+      </Section>
+      <Section>
+        <Heading>{session.title}</Heading>
+        <Text style={styles.startTime}>{startTime(session.startTime)}</Text>
+        <Paragraph>{session.description}</Paragraph>
+        <Text style={styles.presentedBy}>Presented by:</Text>
+      </Section>
+      <TouchableOpacity style={styles.speaker} onPress={toggleModal}>
         <Image
-          style={{width: 65, height: 65, borderRadius: 65 / 2}}
+          style={styles.speakerImg}
           source={{uri: session.speaker.image}}
         />
+        <Text style={styles.speakerName}>{session.speaker.name}</Text>
       </TouchableOpacity>
-      <Modal open={openModal} onClose={toggleModal}>
+      <Section style={styles.favoriteBtnContainer}>
+        <FavoriteBtn style={styles.favoriteBtn} id={session.id} />
+      </Section>
+      <Modal
+        modalStyle={globalStyles.modal}
+        open={openModal}
+        onClose={toggleModal}>
         <Image
-          style={{width: 65, height: 65, borderRadius: 65 / 2}}
+          style={styles.modalSpeakerImg}
           source={{uri: session.speaker.image}}
         />
-        <Text>{session.speaker.name}</Text>
-        <Text>{session.speaker.bio}</Text>
-        <TouchableOpacity onPress={() => Linking.openURL(session.speaker.url)}>
-          <Text>Read More on Wikipedia</Text>
+        <Heading>{session.speaker.name}</Heading>
+        <Paragraph>{session.speaker.bio}</Paragraph>
+        <TouchableOpacity
+          style={styles.favoriteBtn}
+          onPress={() => Linking.openURL(session.speaker.url)}>
+          <Text style={globalStyles.favoriteBtnText}>
+            Read More on Wikipedia
+          </Text>
         </TouchableOpacity>
       </Modal>
-      <FavoriteBtn color="#9963ea" label="Add to Faves" />
     </Section>
   ) : null;
 };

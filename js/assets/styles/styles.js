@@ -18,13 +18,47 @@ const globalStyles = StyleSheet.create({
     fontWeight: '300',
     color: '#000',
     fontSize: 20,
+    lineHeight: 30,
     paddingVertical: 10,
   },
-  btn: {
+  favoriteBtnText: {
     color: '#fff',
-    backgroundColor: '#9963ea',
-    borderRadius: 25,
-    padding: 10,
+    fontSize: 18,
+    fontWeight: '600',
+    paddingHorizontal: 10,
+    letterSpacing: 2,
+  },
+  modalContainer: {
+    backgroundColor: '#000',
+    flex: 1,
+  },
+  modal: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 20,
+    marginTop: 30,
+    alignItems: 'center',
+    marginHorizontal: 15,
+    borderRadius: 8,
+    paddingVertical: 40,
+  },
+
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 30,
+  },
+  modalAboutSpeaker: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 20,
+    letterSpacing: 1.1,
+  },
+  modalCloseBtn: {
+    color: '#fff',
+    fontWeight: '400',
+    fontSize: 20,
+    paddingLeft: 20,
+    paddingRight: 85,
   },
 });
 
