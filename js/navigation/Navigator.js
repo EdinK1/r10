@@ -8,19 +8,39 @@ import Map from '../screens/Map/';
 import Faves from '../screens/Faves/';
 import Session from '../screens/Session/';
 import {View, Text} from 'react-native';
-
-const HomeScene = createStackNavigator({
-  Schedule,
-  Session: {
-    screen: Session,
-    navigationOptions: {
-      headerBackTitleVisible: false,
-    },
+import {sharedNavigationOptions} from './gradientHeader';
+const HomeScene = createStackNavigator(
+  {Schedule, Session},
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      ...sharedNavigationOptions(navigation),
+    }),
   },
-});
-const MapScene = createStackNavigator({Map});
-const AboutScene = createStackNavigator({About});
-const FavesScene = createStackNavigator({Faves});
+);
+const MapScene = createStackNavigator(
+  {Map},
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      ...sharedNavigationOptions(navigation),
+    }),
+  },
+);
+const AboutScene = createStackNavigator(
+  {About},
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      ...sharedNavigationOptions(navigation),
+    }),
+  },
+);
+const FavesScene = createStackNavigator(
+  {Faves},
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      ...sharedNavigationOptions(navigation),
+    }),
+  },
+);
 
 const Navigator = createBottomTabNavigator(
   {
