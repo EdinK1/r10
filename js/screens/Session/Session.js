@@ -10,6 +10,7 @@ import Modal from '../../components/Modal';
 import FavoriteBtn from '../../components/FavoriteBtn';
 import styles from './styles';
 import globalStyles from '../../assets/styles/styles';
+import {timeFormatter} from '../../helpers/';
 
 const getSelectedSessionById = id => {
   const {data, loading, error} = useQuery(
@@ -45,9 +46,6 @@ const Session = ({navigation}) => {
     navigation.getParam('id'),
   );
 
-  const startTime = time =>
-    new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
-
   return loading ? (
     <Paragraph>loading...</Paragraph>
   ) : error ? (
@@ -60,7 +58,7 @@ const Session = ({navigation}) => {
       </Section>
       <Section>
         <Heading>{session.title}</Heading>
-        <Text style={styles.startTime}>{startTime(session.startTime)}</Text>
+        <Text style={styles.startTime}>{timeFormatter(session.startTime)}</Text>
         <Paragraph>{session.description}</Paragraph>
         <Text style={styles.presentedBy}>Presented by:</Text>
       </Section>

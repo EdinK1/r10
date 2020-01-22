@@ -5,6 +5,7 @@ import {gql} from 'apollo-boost';
 import styles from './styles';
 import Section from '../../components/Section';
 import FavoriteIcon from '../../components/FavoriteIcon';
+import {timeFormatter, sessionGrouper} from '../../helpers/';
 
 const ALL_SESSIONS = gql`
   {
@@ -19,27 +20,6 @@ const ALL_SESSIONS = gql`
 
 const Schedule = ({navigation}) => {
   const {loading, error, data} = useQuery(ALL_SESSIONS);
-  const startTime = time =>
-    new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
-
-  const reduceSessionsToHeaders = (headers, session) => {
-    const sectionIndex = headers.findIndex(
-      ({title}) => title === session.startTime,
-    );
-
-    if (sectionIndex === -1)
-      return [
-        ...headers,
-        {
-          title: session.startTime,
-          data: [session],
-        },
-      ];
-
-    headers[sectionIndex].data.push(session);
-
-    return headers;
-  };
 
   return loading ? (
     <Text>loading...</Text>
@@ -48,7 +28,7 @@ const Schedule = ({navigation}) => {
   ) : (
     <Section>
       <SectionList
-        sections={data.allSessions.reduce(reduceSessionsToHeaders, [])}
+        sections={data.allSessions.reduce(sessionGrouper, [])}
         keyExtractor={({id}) => id}
         renderItem={({item: {id, title, location}}, i) => (
           <View style={styles.sessionDetails}>
@@ -62,7 +42,7 @@ const Schedule = ({navigation}) => {
           </View>
         )}
         renderSectionHeader={({section: {title}}) => (
-          <Text style={styles.startTime}>{startTime(title)}</Text>
+          <Text style={styles.startTime}>{timeFormatter(title)}</Text>
         )}
       />
     </Section>

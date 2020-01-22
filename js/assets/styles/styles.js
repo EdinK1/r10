@@ -38,7 +38,7 @@ const globalStyles = StyleSheet.create({
     marginTop: 30,
     alignItems: 'center',
     marginHorizontal: 15,
-    borderRadius: 8,
+    borderRadius: 10,
     paddingVertical: 40,
   },
 

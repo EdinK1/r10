@@ -12,7 +12,7 @@ const FavoriteBtn = ({id, ...props}) => {
         favorites.includes(id) ? removeFavorite(id) : addFavorite(id)
       }>
       <Text style={globalStyles.favoriteBtnText}>
-        {favorites.includes(id) ? 'Add to Faves' : `Remove from Faves`}
+        {favorites.includes(id) ? 'Remove from Faves' : `Add to Faves`}
       </Text>
     </TouchableOpacity>
   );
