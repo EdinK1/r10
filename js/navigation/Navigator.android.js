@@ -1,12 +1,12 @@
 import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import About from '../screens/About/';
-import Schedule from '../screens/Schedule/';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-import Map from '../screens/Map/';
-import Faves from '../screens/Faves/';
-import Session from '../screens/Session/';
+import About from '../screens/About';
+import Schedule from '../screens/Schedule';
+import {createDrawerNavigator} from 'react-navigation-drawer';
+import Map from '../screens/Map';
+import Faves from '../screens/Faves';
+import Session from '../screens/Session';
 import {View, Text} from 'react-native';
 import {sharedNavigationOptions} from './config';
 const HomeScene = createStackNavigator(
@@ -42,7 +42,7 @@ const FavesScene = createStackNavigator(
   },
 );
 
-const Navigator = createBottomTabNavigator(
+const Navigator = createDrawerNavigator(
   {
     Schedule: {
       screen: HomeScene,
