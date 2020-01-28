@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 import styles from '../screens/About/styles';
 import Paragraph from './Paragraph';
+import Animated from 'react-native-reanimated';
+import CollapsableText from './CollapsableText';
 
 const Conduct = ({title, description, ...props}) => {
   const [open, setOpen] = useState(false);
@@ -12,7 +14,9 @@ const Conduct = ({title, description, ...props}) => {
           {open ? '-' : '+'} {title}
         </Text>
       </TouchableOpacity>
-      {open ? <Paragraph>{description}</Paragraph> : null}
+      <CollapsableText>
+        {open ? <Paragraph>{description}</Paragraph> : null}
+      </CollapsableText>
     </>
   );
 };

@@ -9,6 +9,7 @@ import Faves from '../screens/Faves';
 import Session from '../screens/Session';
 import {View, Text} from 'react-native';
 import {sharedNavigationOptions} from './config';
+
 const HomeScene = createStackNavigator(
   {Schedule, Session},
   {
@@ -85,23 +86,23 @@ const Navigator = createDrawerNavigator(
       },
     },
   },
-  {
-    tabBarOptions: {
-      activeTintColor: '#fff',
+  // {
+  //   tabBarOptions: {
+  //     activeTintColor: '#fff',
 
-      inactiveTintColor: '#999',
-      labelPosition: 'below-icon',
-      style: {
-        backgroundColor: '#000',
-      },
-      labelStyle: {
-        fontSize: 14,
-        fontWeight: '600',
-        fontFamily: 'Montserrat-Regular',
-      },
-    },
-    initialRouteName: 'Schedule',
-  },
+  //     inactiveTintColor: '#999',
+  //     labelPosition: 'below-icon',
+  //     style: {
+  //       backgroundColor: '#000',
+  //     },
+  //     labelStyle: {
+  //       fontSize: 14,
+  //       fontWeight: '600',
+  //       fontFamily: 'Montserrat-Regular',
+  //     },
+  //   },
+  //   initialRouteName: 'Schedule',
+  // },
 );
 
 export default createAppContainer(Navigator);

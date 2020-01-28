@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Image} from 'react-native';
+import {Image} from 'react-native';
 import globalStyles from '../../assets/styles/styles';
 import styles from './styles';
 import {useQuery} from '@apollo/react-hooks';
@@ -24,6 +24,7 @@ const AlL_CONDUCTS = gql`
 
 const About = () => {
   const {loading, error, data} = useQuery(AlL_CONDUCTS);
+
   return loading ? (
     <Spinner />
   ) : error ? (
