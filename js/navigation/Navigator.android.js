@@ -43,66 +43,11 @@ const FavesScene = createStackNavigator(
   },
 );
 
-const Navigator = createDrawerNavigator(
-  {
-    Schedule: {
-      screen: HomeScene,
-      navigationOptions: {
-        tabBarIcon: () => (
-          <View>
-            <Text>⏱</Text>
-          </View>
-        ),
-      },
-    },
-    Map: {
-      screen: MapScene,
-      navigationOptions: {
-        tabBarIcon: () => (
-          <View>
-            <Text>🗺</Text>
-          </View>
-        ),
-      },
-    },
-    Faves: {
-      screen: FavesScene,
-      navigationOptions: {
-        tabBarIcon: () => (
-          <View>
-            <Text>⭐️</Text>
-          </View>
-        ),
-      },
-    },
-    About: {
-      screen: AboutScene,
-      navigationOptions: {
-        tabBarIcon: () => (
-          <View>
-            <Text>ℹ️</Text>
-          </View>
-        ),
-      },
-    },
-  },
-  // {
-  //   tabBarOptions: {
-  //     activeTintColor: '#fff',
-
-  //     inactiveTintColor: '#999',
-  //     labelPosition: 'below-icon',
-  //     style: {
-  //       backgroundColor: '#000',
-  //     },
-  //     labelStyle: {
-  //       fontSize: 14,
-  //       fontWeight: '600',
-  //       fontFamily: 'Montserrat-Regular',
-  //     },
-  //   },
-  //   initialRouteName: 'Schedule',
-  // },
-);
+const Navigator = createDrawerNavigator({
+  Schedule: HomeScene,
+  Map: MapScene,
+  Faves: FavesScene,
+  About: AboutScene,
+});
 
 export default createAppContainer(Navigator);

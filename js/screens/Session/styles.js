@@ -52,15 +52,6 @@ const styles = StyleSheet.create({
   favoriteBtnContainer: {
     alignItems: 'center',
   },
-  favoriteBtn: {
-    backgroundColor: '#9963ea',
-    marginTop: 20,
-    width: '85%',
-    paddingVertical: 15,
-    alignItems: 'center',
-    color: '#fff',
-    borderRadius: 25,
-  },
   modalSpeakerImg: {
     height: 135,
     width: 135,

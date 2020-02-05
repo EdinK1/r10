@@ -22,6 +22,14 @@ const globalStyles = StyleSheet.create({
     lineHeight: 30,
     paddingVertical: 10,
   },
+  favoriteBtn: {
+    marginTop: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 25,
+    alignItems: 'center',
+    color: '#fff',
+    borderRadius: 25,
+  },
   favoriteBtnText: {
     color: '#fff',
     fontSize: 18,

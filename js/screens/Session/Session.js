@@ -12,6 +12,7 @@ import styles from './styles';
 import globalStyles from '../../assets/styles/styles';
 import {timeFormatter} from '../../helpers/';
 import Spinner from '../../components/Spinner';
+import LinearGradient from 'react-native-linear-gradient';
 
 const getSelectedSessionById = id => {
   const {data, loading, error} = useQuery(
@@ -71,7 +72,7 @@ const Session = ({navigation}) => {
         <Text style={styles.speakerName}>{session.speaker.name}</Text>
       </TouchableOpacity>
       <Section style={styles.favoriteBtnContainer}>
-        <FavoriteBtn style={styles.favoriteBtn} id={session.id} />
+        <FavoriteBtn id={session.id} />
       </Section>
       <Modal
         modalStyle={globalStyles.modal}
@@ -83,13 +84,19 @@ const Session = ({navigation}) => {
         />
         <Heading>{session.speaker.name}</Heading>
         <Paragraph>{session.speaker.bio}</Paragraph>
-        <TouchableOpacity
-          style={styles.favoriteBtn}
-          onPress={() => Linking.openURL(session.speaker.url)}>
-          <Text style={globalStyles.favoriteBtnText}>
-            Read More on Wikipedia
-          </Text>
-        </TouchableOpacity>
+        <LinearGradient
+          colors={['#9963ea', '#8797D6']}
+          start={{x: 0.0, y: 1.0}}
+          end={{x: 1.0, y: 0.0}}
+          style={globalStyles.favoriteBtn}>
+          <TouchableOpacity
+            style={styles.favoriteBtn}
+            onPress={() => Linking.openURL(session.speaker.url)}>
+            <Text style={globalStyles.favoriteBtnText}>
+              Read More on Wikipedia
+            </Text>
+          </TouchableOpacity>
+        </LinearGradient>
       </Modal>
     </Section>
   ) : null;
