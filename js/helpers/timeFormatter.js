@@ -1,9 +1,4 @@
-// const startTime = time =>
-//   new Date(time).toLocaleString('en-US', {hour: 'numeric', hour12: true});
-
-// export default startTime;
-
-function startTime(time) {
+const startTime = time => {
   const date = new Date(time);
   var hours = date.getHours();
   var minutes = date.getMinutes();
@@ -13,5 +8,5 @@ function startTime(time) {
   minutes = minutes < 10 ? '0' + minutes : minutes;
   var strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
-}
+};
 export default startTime;
