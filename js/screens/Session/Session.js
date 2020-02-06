@@ -62,42 +62,48 @@ const Session = ({navigation}) => {
         <Heading>{session.title}</Heading>
         <Text style={styles.startTime}>{timeFormatter(session.startTime)}</Text>
         <Paragraph>{session.description}</Paragraph>
-        <Text style={styles.presentedBy}>Presented by:</Text>
       </Section>
-      <TouchableOpacity style={styles.speaker} onPress={toggleModal}>
-        <Image
-          style={styles.speakerImg}
-          source={{uri: session.speaker.image}}
-        />
-        <Text style={styles.speakerName}>{session.speaker.name}</Text>
-      </TouchableOpacity>
+      {session.speaker && (
+        <>
+          <Text style={styles.presentedBy}>Presented by:</Text>
+          <TouchableOpacity style={styles.speaker} onPress={toggleModal}>
+            <Image
+              style={styles.speakerImg}
+              source={{uri: session.speaker.image}}
+            />
+            <Text style={styles.speakerName}>{session.speaker.name}</Text>
+          </TouchableOpacity>
+        </>
+      )}
       <Section style={styles.favoriteBtnContainer}>
         <FavoriteBtn id={session.id} />
       </Section>
-      <Modal
-        modalStyle={globalStyles.modal}
-        open={openModal}
-        onClose={toggleModal}>
-        <Image
-          style={styles.modalSpeakerImg}
-          source={{uri: session.speaker.image}}
-        />
-        <Heading>{session.speaker.name}</Heading>
-        <Paragraph>{session.speaker.bio}</Paragraph>
-        <LinearGradient
-          colors={['#9963ea', '#8797D6']}
-          start={{x: 0.0, y: 1.0}}
-          end={{x: 1.0, y: 0.0}}
-          style={globalStyles.favoriteBtn}>
-          <TouchableOpacity
-            style={styles.favoriteBtn}
-            onPress={() => Linking.openURL(session.speaker.url)}>
-            <Text style={globalStyles.favoriteBtnText}>
-              Read More on Wikipedia
-            </Text>
-          </TouchableOpacity>
-        </LinearGradient>
-      </Modal>
+      {session.speaker && (
+        <Modal
+          modalStyle={globalStyles.modal}
+          open={openModal}
+          onClose={toggleModal}>
+          <Image
+            style={styles.modalSpeakerImg}
+            source={{uri: session.speaker.image}}
+          />
+          <Heading>{session.speaker.name}</Heading>
+          <Paragraph>{session.speaker.bio}</Paragraph>
+          <LinearGradient
+            colors={['#9963ea', '#8797D6']}
+            start={{x: 0.0, y: 1.0}}
+            end={{x: 1.0, y: 0.0}}
+            style={globalStyles.favoriteBtn}>
+            <TouchableOpacity
+              style={styles.favoriteBtn}
+              onPress={() => Linking.openURL(session.speaker.url)}>
+              <Text style={globalStyles.favoriteBtnText}>
+                Read More on Wikipedia
+              </Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </Modal>
+      )}
     </Section>
   ) : null;
 };
